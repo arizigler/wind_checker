@@ -1,6 +1,7 @@
 var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
+var stringify = require('stringify-object');
 var sprintf = require('sprintf-js').sprintf
 var url = 'http://www.windalert.co.il/changelanguage/1?returnurl=%2f';
 var sites = [];
@@ -22,6 +23,10 @@ request(url, function(error, response, html){
           sites[i]=person;
         });
     }
+    //var forScala = {};
+    //forScala.array = sites;
+    //var pretty = stringify(forScala);
+    //console.log(pretty);
     var i;
     var poi = {};
     var bat_yam = "בת ים, לגונה"
