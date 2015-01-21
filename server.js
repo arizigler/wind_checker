@@ -1,7 +1,7 @@
 var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
-var stringify = require('stringify-object');
+//var stringify = require('stringify-object');
 var sprintf = require('sprintf-js').sprintf
 var url = 'http://www.windalert.co.il/changelanguage/1?returnurl=%2f';
 var sites = [];
@@ -34,7 +34,7 @@ request(url, function(error, response, html){
     for (i=0; i < sites.length; ++i) {
         var cur = sites[i];
         //if (poi[cur.name] == 1 && cur.wind > 12 && cur.time != "N/A" )  {
-       if (cur.time != Object.undefined )
+       if (cur.time != Object.undefined && cur.time != "לא זמין")
           console.log(sprintf("%s:\t%s\t\t%s\t%s <br>", cur.time, cur.name, cur.wind, cur.direction));
 //          console.log(cur.time + ": " + cur.name + " " + cur.wind);
         //}
